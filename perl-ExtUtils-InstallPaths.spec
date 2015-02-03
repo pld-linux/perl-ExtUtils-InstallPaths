@@ -6,11 +6,11 @@
 %define		pnam	InstallPaths
 %include	/usr/lib/rpm/macros.perl
 Summary:	ExtUtils::InstallPaths - Build.PL install path logic made easy
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	ExtUtils::InstallPaths - ułatwienie logiki ścieżek instalacyjnych Build.PL
 Name:		perl-ExtUtils-InstallPaths
 Version:	0.010
 Release:	1
-# same as perl
+# same as perl 5
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -37,8 +37,18 @@ different (and more complicated) way. destdir lets you specify a
 temporary installation directory like /tmp/install in case you want to
 create bundled-up installable packages.
 
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Ten moduł próbuje ułatwić rozwiązywanie ścieżek instalacyjnych na
+tyle, na ile to możliwe.
+
+Aby zainstalować moduł, musi on określić, gdzie instalować
+poszczególne elementy. W skrócie, domyślne ścieżki instalacyjne są
+określane z ExtUtils::Config i mogą być indywidualnie nadpisywane przy
+użyciu atrybutu install_path. Atrybut install_base pozwala na
+określenie alternatywnego korzenia dzewa instalacji, np. /home/foo, a
+prefix robi coś podobnego w nieco inny (i bardziej skomplikowany)
+sposób. destdir pozwala określić tymczasowy katalog instalacyjny, na
+przykład /tmp/install, aby utworzyć pakiety instalacyjne.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -61,6 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes INSTALL README
+%doc Changes README
 %{perl_vendorlib}/ExtUtils/InstallPaths.pm
-%{_mandir}/man3/*
+%{_mandir}/man3/ExtUtils::InstallPaths.3pm*
