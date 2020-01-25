@@ -4,7 +4,6 @@
 #
 %define		pdir	ExtUtils
 %define		pnam	InstallPaths
-%include	/usr/lib/rpm/macros.perl
 Summary:	ExtUtils::InstallPaths - Build.PL install path logic made easy
 Summary(pl.UTF-8):	ExtUtils::InstallPaths - ułatwienie logiki ścieżek instalacyjnych Build.PL
 Name:		perl-ExtUtils-InstallPaths
