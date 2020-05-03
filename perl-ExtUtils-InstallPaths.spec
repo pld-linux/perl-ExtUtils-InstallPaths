@@ -7,18 +7,22 @@
 Summary:	ExtUtils::InstallPaths - Build.PL install path logic made easy
 Summary(pl.UTF-8):	ExtUtils::InstallPaths - ułatwienie logiki ścieżek instalacyjnych Build.PL
 Name:		perl-ExtUtils-InstallPaths
-Version:	0.010
+Version:	0.012
 Release:	1
 # same as perl 5
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	f0b00cc6c04653588a6298fa1f16c07f
-URL:		http://search.cpan.org/dist/ExtUtils-InstallPaths/
+# Source0-md5:	9a8d66aab1ffec98ea260faf03ac612b
+URL:		https://metacpan.org/release/ExtUtils-InstallPaths
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
+BuildRequires:	perl(File::Spec::Functions) >= 0.83
 BuildRequires:	perl-ExtUtils-Config >= 0.002
+BuildRequires:	perl-File-Temp
+BuildRequires:	perl-Test-Simple
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -70,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes
 %{perl_vendorlib}/ExtUtils/InstallPaths.pm
 %{_mandir}/man3/ExtUtils::InstallPaths.3pm*
